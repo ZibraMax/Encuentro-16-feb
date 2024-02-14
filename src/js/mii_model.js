@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { AxisGridHelper } from "./GridHelper.js";
 class GLTFViewer {
 	constructor(container, width, height) {
 		this.prevTime = 0;
@@ -19,10 +20,10 @@ class GLTFViewer {
 
 		this.scene = new THREE.Scene();
 
-		this.ambientLight = new THREE.AmbientLight(0xffffff, 1);
+		this.ambientLight = new THREE.AmbientLight(0xffffff, 2.8);
 		this.scene.add(this.ambientLight);
 
-		this.pointLight = new THREE.PointLight(0xffffff, 10);
+		this.pointLight = new THREE.PointLight(0xffffff, 0.2);
 		this.camera.add(this.pointLight);
 		this.scene.add(this.camera);
 
@@ -64,7 +65,7 @@ class GLTFViewer {
 			.loadAsync(modelName, this.onProgress.bind(this))
 			.then(function (gltf) {
 				gltf.scene.rotation.x += 3.141592654 / 2;
-				gltf.scene.scale.set(10, 10, 10);
+				gltf.scene.scale.set(1, 1, 1);
 				O.mixer = new THREE.AnimationMixer(gltf.scene);
 				O.animations = [];
 				for (const animation of gltf.animations) {
@@ -81,6 +82,7 @@ class GLTFViewer {
 				O.activeAction.play();
 				O.setAction(1);
 				console.log(O.animations);
+				//O.agh = new AxisGridHelper(O.scene, 5);
 
 				requestAnimationFrame(O.animate.bind(O));
 			});
@@ -107,7 +109,7 @@ class GLTFViewer {
 
 		let dir = new THREE.Vector3();
 		this.camera.getWorldDirection(dir);
-		let mesh = this.group.children[0].children[0];
+		let mesh = this.group.children[0].children[3];
 		let bs = mesh.geometry.boundingSphere;
 		let bsWorld = bs.center.clone();
 		mesh.localToWorld(bsWorld);
@@ -121,7 +123,7 @@ class GLTFViewer {
 		this.camera.getWorldDirection(cameraDir);
 
 		let cameraOffs = cameraDir.clone();
-		cameraOffs.multiplyScalar(-FL * 1.5);
+		cameraOffs.multiplyScalar(-FL * 1.2);
 		let newCameraPos = bsWorld.clone().add(cameraOffs);
 
 		this.camera.position.copy(newCameraPos);
