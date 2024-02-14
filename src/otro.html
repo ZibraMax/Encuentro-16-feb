@@ -1,0 +1,62 @@
+<!-- <iframe data-preload  class="iframe-3d " data-src="https://zibramax.github.io/masters-slides/docs/viewer/" scrolling="no" frameborder="0" ></iframe> para meter 3d por el momento-->
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Arturo Rodriguez - Encuentro CIMOC</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="css/main.css"
+		/>
+		<script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+		<link rel="stylesheet" href="css/reveal.css" />
+		<link rel="stylesheet" id="theme" href="css/theme/white.css" />
+
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+					"three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div
+			id="mii_model"
+			style="height: 300px; width: 300px; border: solid rgb(0, 0, 0)"
+		></div>
+		<script type="module">
+			import { GLTFViewer } from "./js/mii_model.js";
+			const mii_model_container = document.getElementById("mii_model");
+			const mii_model = new GLTFViewer(mii_model_container, 300, 300);
+			mii_model.loadModel("./resources/3DModels/mii_gltf/", "mii.gltf");
+			console.log(mii_model.container.innerWidth);
+		</script>
+		<script type="module" src="./js/mii_model.js"></script>
+	</body>
+</html>

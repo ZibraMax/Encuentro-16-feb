@@ -1,3 +1,4 @@
+import { GLTFViewer } from "./mii_model.js";
 const elems = document.body.getElementsByTagName("figcaption");
 for (let i = 0; i < elems.length; i++) {
 	const element = elems[i];
@@ -71,3 +72,20 @@ const plots_layout = {
 function sleep(time) {
 	return new Promise((resolve) => setTimeout(resolve, time));
 }
+Reveal.on("mii_model", () => {
+	const mii_model_container = document.getElementById("mii_model");
+	const mii_model = new GLTFViewer(mii_model_container, 400, 600);
+	mii_model
+		.loadModel("./resources/3DModels/mii_gltf/", "mii.glb")
+		.then(() => {
+			mii_model.onWindowResize();
+			mii_model.setCamPos(
+				0.021778356863911674,
+				-2.608167847570856,
+				1.504572492453016,
+				0.021778342784509318,
+				-0.28520274484813496,
+				1.5045701691694453
+			);
+		});
+});
