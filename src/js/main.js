@@ -91,7 +91,7 @@ Reveal.on("mii_model", () => {
 				);
 				sleep(5000).then(() => {
 					mii_model.setAction(0);
-					sleep(5000).then(() => {
+					sleep(4000).then(() => {
 						mii_model.setAction(1);
 					});
 				});
