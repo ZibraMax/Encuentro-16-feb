@@ -64,17 +64,22 @@ class GLTFViewer {
 			.loadAsync(modelName, this.onProgress.bind(this))
 			.then(function (gltf) {
 				gltf.scene.rotation.x += 3.141592654 / 2;
-				gltf.scene.scale.set(0.8, 0.8, 0.8);
-				console.log(gltf);
+				gltf.scene.scale.set(10, 10, 10);
 				O.mixer = new THREE.AnimationMixer(gltf.scene);
-				O.animations = gltf.animations;
-				O.currentAction = O.mixer.clipAction(O.animations[0]);
+				O.animations = [];
+				for (const animation of gltf.animations) {
+					O.animations.push(O.mixer.clipAction(animation));
+				}
 				O.scene.add(gltf.scene);
 				O.group = gltf.scene;
 				O.render();
 				O.zoomExtents();
 				O.render();
-				O.currentAction.play();
+				O.lastAction = O.animations[0];
+				O.activeAction = O.animations[0];
+				O.setAction(1);
+				console.log(O.animations);
+
 				requestAnimationFrame(O.animate.bind(O));
 			});
 	}
@@ -100,7 +105,7 @@ class GLTFViewer {
 
 		let dir = new THREE.Vector3();
 		this.camera.getWorldDirection(dir);
-		let mesh = this.group.children[0];
+		let mesh = this.group.children[0].children[0];
 		let bs = mesh.geometry.boundingSphere;
 		let bsWorld = bs.center.clone();
 		mesh.localToWorld(bsWorld);
@@ -114,7 +119,7 @@ class GLTFViewer {
 		this.camera.getWorldDirection(cameraDir);
 
 		let cameraOffs = cameraDir.clone();
-		cameraOffs.multiplyScalar(-FL * 40);
+		cameraOffs.multiplyScalar(-FL * 1.5);
 		let newCameraPos = bsWorld.clone().add(cameraOffs);
 
 		this.camera.position.copy(newCameraPos);
@@ -148,6 +153,18 @@ class GLTFViewer {
 		this.render();
 
 		this.prevTime = time;
+	}
+	setAction(idx) {
+		let toAction = this.animations[idx];
+		if (toAction != this.activeAction) {
+			this.lastAction = this.activeAction;
+			this.activeAction = toAction;
+			//lastAction.stop()
+			this.lastAction.fadeOut(1);
+			this.activeAction.reset();
+			this.activeAction.fadeIn(1);
+			this.activeAction.play();
+		}
 	}
 }
 export { GLTFViewer };

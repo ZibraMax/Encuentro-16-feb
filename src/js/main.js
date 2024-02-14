@@ -42,7 +42,7 @@ const config = {
 Reveal.initialize(config);
 
 let queryString = window.location.search;
-let theme = "black";
+let theme = "white";
 if (queryString != "") {
 	queryString = queryString.split("?")[1];
 	let parametros = new URLSearchParams(queryString);
@@ -72,20 +72,30 @@ const plots_layout = {
 function sleep(time) {
 	return new Promise((resolve) => setTimeout(resolve, time));
 }
+var ya_paso_mii = false;
 Reveal.on("mii_model", () => {
-	const mii_model_container = document.getElementById("mii_model");
-	const mii_model = new GLTFViewer(mii_model_container, 400, 600);
-	mii_model
-		.loadModel("./resources/3DModels/mii_gltf/", "mii.glb")
-		.then(() => {
-			mii_model.onWindowResize();
-			mii_model.setCamPos(
-				0.021778356863911674,
-				-2.608167847570856,
-				1.504572492453016,
-				0.021778342784509318,
-				-0.28520274484813496,
-				1.5045701691694453
-			);
-		});
+	if (!ya_paso_mii) {
+		const mii_model_container = document.getElementById("mii_model");
+		const mii_model = new GLTFViewer(mii_model_container, 400, 600);
+		mii_model
+			.loadModel("./resources/3DModels/mii_gltf/", "mii.glb")
+			.then(() => {
+				mii_model.onWindowResize();
+				mii_model.setCamPos(
+					0.003439784049987793,
+					-26.98185717987509,
+					9.193445028352883,
+					0.003439784049987793,
+					0.06918240150003709,
+					9.193417970105294
+				);
+				sleep(5000).then(() => {
+					mii_model.setAction(0);
+					sleep(5000).then(() => {
+						mii_model.setAction(1);
+					});
+				});
+			});
+		ya_paso_mii = true;
+	}
 });
