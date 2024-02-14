@@ -79,7 +79,7 @@ var p = mii_model
 
 var ya_paso_mii = false;
 Reveal.on("mii_model", () => {
-	if (!ya_paso_mii) {
+	
 		
 			p.then(() => {
 				mii_model.onWindowResize();
@@ -99,5 +99,5 @@ Reveal.on("mii_model", () => {
 				});
 			});
 		ya_paso_mii = true;
-	}
+	
 });
