@@ -75,8 +75,9 @@ class GLTFViewer {
 				O.render();
 				O.zoomExtents();
 				O.render();
-				O.lastAction = O.animations[0];
-				O.activeAction = O.animations[0];
+				O.lastAction = O.animations[1];
+				O.activeAction = O.animations[1];
+				O.activeAction.play();
 				O.setAction(1);
 				console.log(O.animations);
 

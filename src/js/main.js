@@ -76,7 +76,7 @@ var ya_paso_mii = false;
 Reveal.on("mii_model", () => {
 	if (!ya_paso_mii) {
 		const mii_model_container = document.getElementById("mii_model");
-		const mii_model = new GLTFViewer(mii_model_container, 400, 600);
+		const mii_model = new GLTFViewer(mii_model_container, 500, 600);
 		mii_model
 			.loadModel("./resources/3DModels/mii_gltf/", "mii.glb")
 			.then(() => {
