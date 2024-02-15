@@ -145,8 +145,7 @@
 									class="fragment"
 									style="width: 100%; display: inline-block"
 								>
-									<div class="two-column">Café</div>
-									<div class="two-column">alo</div>
+									<div>Café</div>
 								</div>
 								<br />
 								<br />
@@ -154,10 +153,7 @@
 									class="fragment"
 									style="width: 100%; display: inline-block"
 								>
-									<div class="two-column">
-										Brandon Sanderson
-									</div>
-									<div class="two-column">alo</div>
+									<div>Brandon Sanderson</div>
 								</div>
 								<br />
 								<br />
@@ -165,18 +161,67 @@
 									class="fragment"
 									style="width: 100%; display: inline-block"
 								>
-									<div class="two-column">Programar</div>
-									<div class="two-column">alo</div>
+									<div>Programar</div>
 								</div>
-								<br />
-								<br />
-								<div
-									class="fragment"
-									style="width: 100%; display: inline-block"
-								>
-									<div class="two-column">Cosa 4</div>
-									<div class="two-column">alo</div>
+							</div>
+						</div>
+						<aside class="notes">Pasar diapositiva rápido</aside>
+					</section>
+				</section>
+
+				<!-- Diapositiva de camaras -->
+
+				<section data-auto-animate data-state="webcam">
+					<section data-auto-animate id="webcam">
+						<div class="content-indicator">
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/introduccion-title"
+									>Personal
+								</a>
+							</div>
+							<div class="content-indicator-item selected-ci">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/metodos-title"
+									>Mecánica ocular
+								</a>
+							</div>
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/resultados-title"
+									>No local
+								</a>
+							</div>
+						</div>
+						<div class="slide">
+							<div class="two-column" style="text-align: left">
+								<div class="select">
+									<select
+										id="videoSource"
+										style="
+											position: relative;
+											top: 33px;
+											left: 5px;
+											z-index: 100;
+										"
+									></select>
+									<canvas
+										id="cameraFeedNormal"
+										style="z-index: 2"
+									>
+									</canvas>
 								</div>
+							</div>
+							<div class="two-column">
+								<br />
+								<canvas id="cameraFeed" style="z-index: 2">
+								</canvas>
 							</div>
 						</div>
 						<aside class="notes">Pasar diapositiva rápido</aside>

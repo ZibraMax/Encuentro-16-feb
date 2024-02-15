@@ -216,3 +216,6 @@ td {
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
+canvas {
+	transition: 2s;
+}

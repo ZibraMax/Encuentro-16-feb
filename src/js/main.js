@@ -1,4 +1,5 @@
 import { GLTFViewer } from "./mii_model.js";
+import { WebCamFilters } from "./WebcamFilters.js";
 const elems = document.body.getElementsByTagName("figcaption");
 for (let i = 0; i < elems.length; i++) {
 	const element = elems[i];
@@ -73,31 +74,55 @@ function sleep(time) {
 	return new Promise((resolve) => setTimeout(resolve, time));
 }
 const mii_model_container = document.getElementById("mii_model");
-		const mii_model = new GLTFViewer(mii_model_container, 500, 600);
-var p = mii_model
-			.loadModel("./resources/3DModels/mii_gltf/", "mii.glb")
+const mii_model = new GLTFViewer(mii_model_container, 500, 600);
+var p = mii_model.loadModel("./resources/3DModels/mii_gltf/", "mii.glb");
 
-var ya_paso_mii = false;
 Reveal.on("mii_model", () => {
-	
-		
-			p.then(() => {
-				mii_model.onWindowResize();
-				mii_model.setCamPos(
-					0.01523827259889945,
-					-2.617248957815932,
-					0.9648668548278112,
-					0.01523827259889945,
-					-0.0012016982056230637,
-					0.9648642383738599
-				);
-				sleep(5000).then(() => {
-					mii_model.setAction(0);
-					sleep(4000).then(() => {
-						mii_model.setAction(1);
-					});
-				});
+	p.then(() => {
+		mii_model.onWindowResize();
+		mii_model.setCamPos(
+			0.01523827259889945,
+			-2.617248957815932,
+			0.9648668548278112,
+			0.01523827259889945,
+			-0.0012016982056230637,
+			0.9648642383738599
+		);
+		sleep(2000).then(() => {
+			mii_model.setAction(0);
+			sleep(4000).then(() => {
+				mii_model.setAction(1);
 			});
-		ya_paso_mii = true;
-	
+		});
+	});
+});
+
+let yaPasoCamera = false;
+const canvasNormal = document.getElementById("cameraFeedNormal");
+const canvasCamera = document.getElementById("cameraFeed");
+const webcam = new WebCamFilters(canvasCamera, 500);
+
+const webcamNormal = new WebCamFilters(canvasNormal, 500);
+
+const videoSelect = document.getElementById("videoSource");
+videoSelect.onchange = () => {
+	webcam.getStream();
+	webcamNormal.getStream();
+};
+
+Reveal.on("webcam", () => {
+	if (!yaPasoCamera) {
+		webcam.start();
+		webcamNormal.start();
+		yaPasoCamera = true;
+	}
+	sleep(3000).then(() => {
+		webcam.set_filter(1);
+		sleep(3000).then(() => {
+			webcam.set_filter(2);
+			sleep(3000).then(() => {
+				webcam.set_filter(0);
+			});
+		});
+	});
 });
