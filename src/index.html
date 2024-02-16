@@ -57,7 +57,7 @@
 							z-index: 100;
 						"
 						width="150px"
-						src="./resources/uniandes-logo.svg"
+						src="https://educacion.uniandes.edu.co/sites/default/files/Uniandes.png"
 					/>
 					<div class="slide" style="height: 700px; width: 100%">
 						<div>
@@ -114,7 +114,7 @@
 								<a
 									data-id="not-animate"
 									class="hidden-link"
-									href="#/metodos-title"
+									href="#/webcam"
 									>Mecánica ocular
 								</a>
 							</div>
@@ -186,7 +186,7 @@
 								<a
 									data-id="not-animate"
 									class="hidden-link"
-									href="#/metodos-title"
+									href="#/webcam"
 									>Mecánica ocular
 								</a>
 							</div>
@@ -256,7 +256,7 @@
 								<a
 									data-id="not-animate"
 									class="hidden-link"
-									href="#/metodos-title"
+									href="#/webcam"
 									>Mecánica ocular
 								</a>
 							</div>
@@ -301,7 +301,7 @@
 								<a
 									data-id="not-animate"
 									class="hidden-link"
-									href="#/metodos-title"
+									href="#/webcam"
 									>Mecánica ocular
 								</a>
 							</div>
@@ -339,7 +339,7 @@
 									<li style="color: #e7c2c5">
 										Lamina cribosa
 									</li>
-									<li style="color: #4ae70d"><i>Tapon</i></li>
+									<li style="color: #4ae70d"><i>Tapón</i></li>
 								</ul>
 								<br />
 								<br />
@@ -372,7 +372,7 @@
 								<a
 									data-id="not-animate"
 									class="hidden-link"
-									href="#/metodos-title"
+									href="#/webcam"
 									>Mecánica ocular
 								</a>
 							</div>
@@ -397,8 +397,24 @@
 									height="260px"
 									src="./resources/Sintapon.jpg"
 								/>
+								<p
+									style="
+										position: absolute;
+										left: 58%;
+										top: 0%;
+										width: 40%;
+									"
+								>
+									La escala de ambas imágenes es la misma, se
+									muestra el esfuerzo principal máximo<br />[35KPa
+									rojo, -10KPa azul]
+									<br />
+									<br />
+									El modelo se realizó en ABAQUS
+								</p>
 							</div>
 							<div
+								class="fragment"
 								style="
 									width: 100%;
 									display: block;
@@ -406,11 +422,407 @@
 								"
 							>
 								<img
+									style="float: left"
 									height="260px"
 									style="display: block"
 									src="./resources/Contapon.jpg"
 								/>
+								<p
+									style="
+										position: absolute;
+										left: 58%;
+										top: 51%;
+										width: 40%;
+									"
+								>
+									Al incluir el tapón se disminuyen los
+									esfuerzos en el nervio y en la retina. Se
+									redistribuyen hacia zonas donde no generan
+									daño considerable
+									<br />
+									<br />
+								</p>
 							</div>
+						</div>
+					</section>
+				</section>
+				<section data-auto-animate data-state="esfuerzosRetina">
+					<section data-auto-animate id="esfuerzosRetina">
+						<div class="content-indicator">
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/introduccion-title"
+									>Personal
+								</a>
+							</div>
+							<div class="content-indicator-item selected-ci">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/webcam"
+									>Mecánica ocular
+								</a>
+							</div>
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/resultados-title"
+									>No local
+								</a>
+							</div>
+						</div>
+						<div class="slide">
+							<br />
+
+							<div style="float: left; width: 30%">
+								<br />
+								<img
+									width="250px"
+									src="resources/Lugaresfuerzos.png"
+								/>
+								<div class="fragment" data-fragment-index="2">
+									<p>
+										El material del tapón será flexible y
+										transparente
+									</p>
+								</div>
+							</div>
+							<div style="float: left; width: 70%">
+								<img
+									data-fragment-index="1"
+									class="fragment"
+									width="550px"
+									src="resources/Esfuerzosretina.png"
+								/>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section data-auto-animate data-state="resultados-title">
+					<section data-auto-animate id="resultados-title">
+						<div class="content-indicator">
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/introduccion-title"
+									>Personal
+								</a>
+							</div>
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/webcam"
+									>Mecánica ocular
+								</a>
+							</div>
+							<div class="content-indicator-item selected-ci">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/resultados-title"
+									>No local
+								</a>
+							</div>
+						</div>
+						<div class="slide">
+							<h3>Elasticidad no local</h3>
+							<div style="width: 100%; float: left">
+								<figure class="three-column figure">
+									<iframe
+										data-preload
+										class="iframe-3d"
+										data-src="https://zibramax.github.io/masters-slides/docs/viewer/?magnif=0.1&mesh=https://raw.githubusercontent.com/ZibraMax/NLFM-SLIDES/main/resources/cube_fast.json&menu=1"
+										scrolling="no"
+										frameborder="0"
+										height="220px"
+									></iframe>
+								</figure>
+								<div class="three-column-two">
+									<br />
+									<div style="top: 10%; font-size: 35px">
+										\(\color{blacks}\scriptsize{\sigma_{ij}=
+										C_{ijkl}\varepsilon_{kl}}\)❌
+									</div>
+									<div style="top: 10%; font-size: 35px">
+										\({\color{blacks}\scriptsize{\sigma_{ij}=
+										{\zeta_1} C_{ijkl}\varepsilon_{kl}+
+										{\zeta_2}\int_{\Omega}A(r/l)C_{ijkl}\varepsilon'_{kl}dv'}}\)✔️
+									</div>
+								</div>
+							</div>
+							<div style="width: 100%; float: left">
+								<div class="three-column">
+									<br />
+									<p style="font-size: 20px">
+										Tiene en cuenta interacciones de largo
+										alcance entre partículas
+										<br />
+										<br />
+										Rangos de aplicación no estan bien
+										definidos
+									</p>
+								</div>
+								<figure
+									class="three-column-two figure"
+									style="text-align: center"
+								>
+									<div
+										style="
+											width: 60%;
+											height: 224px;
+											text-align: center;
+										"
+									>
+										<img
+											style="
+												position: relative;
+												left: 35%;
+											"
+											src="./resources/GORMANI ET AL 2021.jpeg"
+										/>
+									</div>
+									<figcaption style="margin-top: -70px">
+										Pandeo de nanotubos. Tomado de Gormani
+										et al. (2021)
+									</figcaption>
+								</figure>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<div class="content-indicator">
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/introduccion-title"
+									>Personal
+								</a>
+							</div>
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/webcam"
+									>Mecánica ocular
+								</a>
+							</div>
+							<div class="content-indicator-item selected-ci">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/resultados-title"
+									>No local
+								</a>
+							</div>
+						</div>
+						<div class="slide">
+							<h3>Elasticidad no local</h3>
+							<div style="width: 100%; float: left">
+								<figure class="three-column figure">
+									<iframe
+										data-preload
+										class="iframe-3d"
+										data-src="https://zibramax.github.io/masters-slides/docs/viewer/?magnif=0.1&mesh=https://raw.githubusercontent.com/ZibraMax/NLFM-SLIDES/main/resources/cube_fast.json&menu=1"
+										scrolling="no"
+										frameborder="0"
+										height="220px"
+									></iframe>
+								</figure>
+								<figure class="three-column figure">
+									<iframe
+										data-preload
+										class="iframe-3d"
+										data-src="https://zibramax.github.io/masters-slides/docs/viewer/?magnif=0.1&mesh=https://raw.githubusercontent.com/ZibraMax/NLFM-SLIDES/main/resources/placa.json&menu=1"
+										scrolling="no"
+										frameborder="0"
+										height="220px"
+									></iframe>
+								</figure>
+								<div class="three-column">
+									<br />
+									<p>
+										Frecuencias naturales de vibración
+										cambiando material, propiedades y tamaño
+									</p>
+								</div>
+							</div>
+							<div style="width: 100%; float: left">
+								<figure class="three-column figure">
+									<iframe
+										data-preload
+										class="iframe-3d"
+										data-src="https://zibramax.github.io/masters-slides/docs/viewer/?magnif=0.3&mesh=https://raw.githubusercontent.com/ZibraMax/NLFM-SLIDES/main/resources/esfera.json&menu=1"
+										scrolling="no"
+										frameborder="0"
+										height="220px"
+									></iframe>
+								</figure>
+								<figure class="three-column figure">
+									<iframe
+										data-preload
+										class="iframe-3d"
+										data-src="https://zibramax.github.io/masters-slides/docs/viewer/?magnif=0.1&mesh=https://raw.githubusercontent.com/ZibraMax/NLFM-SLIDES/main/resources/viga.json&menu=1"
+										scrolling="no"
+										frameborder="0"
+										height="220px"
+									></iframe>
+								</figure>
+								<div class="three-column">
+									<br />
+									<p>
+										Se comparan las frecuencias obtenidas
+										por la teoría no local con las de la
+										teoría clásica
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section data-auto-animate data-state="graficas-pesadas">
+					<section data-auto-animate id="graficas-pesadas">
+						<div class="content-indicator">
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/introduccion-title"
+									>Personal
+								</a>
+							</div>
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/webcam"
+									>Mecánica ocular
+								</a>
+							</div>
+							<div class="content-indicator-item selected-ci">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/resultados-title"
+									>No local
+								</a>
+							</div>
+						</div>
+						<div class="slide">
+							<iframe
+								data-auto-animate-target="unmatched"
+								data-id="as"
+								data-preload
+								class="iframe-3d"
+								data-src="https://zibramax.github.io/masters-slides/docs/viewer/?magnif=0.1&mesh=https://raw.githubusercontent.com/ZibraMax/NLFM-SLIDES/main/resources/cube_fast.json&menu=1"
+								scrolling="no"
+								frameborder="0"
+								height="100px"
+								width="100px"
+								allowtransparency="true"
+								style="
+									position: absolute;
+									z-index: 100;
+									top: 50px;
+									right: 210px;
+								"
+							></iframe>
+							<figure class="figure">
+								<div
+									style="width: 100%; height: 530px"
+									id="resultados-frecuencias-cambiando-l"
+								></div>
+								<figcaption>
+									Frecuencias naturales de vibración para
+									cubos cambiando el valor de \(l\).
+									\(\zeta_1=0.5\)
+								</figcaption>
+							</figure>
+							<p
+								id="activador_l"
+								class="fragment"
+								style="visibility: none !important"
+							></p>
+							<p
+								id="activador_l2"
+								class="fragment"
+								style="visibility: none !important"
+							></p>
+						</div>
+					</section>
+				</section>
+				<section data-auto-animate data-state="graficas-pesadas-2">
+					<section data-auto-animate id="graficas-pesadas-2">
+						<div class="content-indicator">
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/introduccion-title"
+									>Personal
+								</a>
+							</div>
+							<div class="content-indicator-item">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/webcam"
+									>Mecánica ocular
+								</a>
+							</div>
+							<div class="content-indicator-item selected-ci">
+								<a
+									data-id="not-animate"
+									class="hidden-link"
+									href="#/resultados-title"
+									>No local
+								</a>
+							</div>
+						</div>
+						<div class="slide">
+							<br>
+							<div>
+								<div class="two-column" style="width: 60%">
+									<figure class="figure">
+										<div
+											style="width: 100%; height: 450px"
+											id="resultados-frecuencias-cubos-reg"
+										></div>
+										<figcaption>
+											Regresión de mínimos cuadrados para
+											cubos
+										</figcaption>
+									</figure>
+								</div>
+								<div class="two-column" style="width: 40%">
+									<p>
+										\[\eta_{nl}\left(\frac{l}{R},\zeta_1\right)=\eta_l+a1\frac{l}{R}(\zeta_1-1)\]
+										La regresión esta restringida a la
+										frecuencia local. Con ello se cumple
+										que: \[\lim_{R\to \infty}
+										\eta\left(\frac{l}{R},\zeta\right)=\eta_l\]
+										\[\eta\left(\frac{l}{R},0\right)=\eta_l\]
+										Para cubos se obtiene \(a_1=2.6475 \)
+									</p>
+								</div>
+						</div>
+						
+					</section>
+					<section>
+						<div class="slide">
+							<h2>
+								<span class="vertical-aligned-title"
+									>¡Muchas gracias!<br />
+									¿Preguntas?</span
+								>
+							</h2>
 						</div>
 					</section>
 				</section>

@@ -130,6 +130,10 @@ body {
 	float: left;
 	width: 33%;
 }
+.three-column-two {
+	float: left;
+	width: 60%;
+}
 
 .content-indicator {
 	float: left;
@@ -218,4 +222,7 @@ td {
 }
 canvas {
 	transition: 1s;
+}
+section {
+	border: solid;
 }
