@@ -170,5 +170,27 @@ class GLTFViewer {
 			this.activeAction.play();
 		}
 	}
+
+	setActionNoLoop(idx) {
+		let toAction = this.animations[idx];
+		if (toAction != this.activeAction) {
+			this.lastAction = this.activeAction;
+			this.activeAction = toAction;
+			//lastAction.stop()
+			this.lastAction.fadeOut(1);
+			this.activeAction.reset();
+			this.activeAction.fadeIn(1);
+			this.activeAction.clampWhenFinished = true;
+			this.activeAction.loop = THREE.LoopOnce;
+			this.activeAction.play();
+		}
+	}
+
+	addAction(idx) {
+		this.animations[idx].clampWhenFinished = true;
+		this.animations[idx].loop = THREE.LoopOnce;
+		this.animations[idx].play();
+		return this.animations[idx];
+	}
 }
 export { GLTFViewer };

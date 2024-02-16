@@ -73,20 +73,24 @@ const mii_model_container = document.getElementById("mii_model");
 const mii_model = new GLTFViewer(mii_model_container, 500, 600);
 var p = mii_model.loadModel("./resources/3DModels/mii_gltf/", "mii.glb");
 
+let cp = {
+	x: -0.02503791539224208,
+	y: -1.4148087538651861,
+	z: 1.4356664310502263,
+};
+let tg = {
+	x: -0.02503791539224208,
+	y: -0.0012012273325593252,
+	z: 1.4356650174426995,
+};
+let animation = undefined;
 Reveal.on("mii_model", () => {
 	p.then(() => {
 		mii_model.onWindowResize();
-		mii_model.setCamPos(
-			0.01523827259889945,
-			-2.617248957815932,
-			0.9648668548278112,
-			0.01523827259889945,
-			-0.0012016982056230637,
-			0.9648642383738599
-		);
-		sleep(2000).then(() => {
+		mii_model.setCamPos(cp.x, cp.y, cp.z, tg.x, tg.y, tg.z);
+		sleep(500).then(() => {
 			mii_model.setAction(0);
-			sleep(4000).then(() => {
+			sleep(2000).then(() => {
 				mii_model.setAction(1);
 			});
 		});
@@ -140,6 +144,14 @@ const activador2 = document.getElementById("activador_eye_2");
 const activador3 = document.getElementById("activador_eye_3");
 const activador4 = document.getElementById("activador_l");
 const activador5 = document.getElementById("activador_l2");
+
+const activador_avatar_0 = document.getElementById("animacion-avatar-0");
+const activador_avatar_1 = document.getElementById("animacion-avatar-1");
+const activador_avatar_2 = document.getElementById("animacion-avatar-2");
+const activador_avatar_3 = document.getElementById("animacion-avatar-3");
+const activador_avatar_4 = document.getElementById("animacion-avatar-4");
+const activador_avatar_5 = document.getElementById("animacion-avatar-5");
+
 Reveal.on("fragmentshown", (event) => {
 	if (event["fragment"] === activador) {
 		webcam.set_filter(1);
@@ -151,6 +163,24 @@ Reveal.on("fragmentshown", (event) => {
 		animacion_l();
 	} else if (event["fragment"] === activador5) {
 		animacion_2();
+	} else if (event["fragment"] === activador_avatar_0) {
+		mii_model.setActionNoLoop(2);
+		animation = mii_model.addAction(4);
+	} else if (event["fragment"] === activador_avatar_1) {
+		animation.fadeOut(0.5);
+		animation = mii_model.addAction(5);
+	} else if (event["fragment"] === activador_avatar_2) {
+		animation.fadeOut(0.5);
+		animation = mii_model.addAction(9);
+	} else if (event["fragment"] === activador_avatar_3) {
+		animation.fadeOut(0.5);
+		animation = mii_model.addAction(14);
+	} else if (event["fragment"] === activador_avatar_4) {
+		animation.fadeOut(0.5);
+		animation = mii_model.addAction(15);
+	} else if (event["fragment"] === activador_avatar_5) {
+		animation.fadeOut(0.5);
+		animation = mii_model.addAction(16);
 	}
 });
 Reveal.on("fragmenthidden", (event) => {
