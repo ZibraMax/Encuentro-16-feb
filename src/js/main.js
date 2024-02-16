@@ -1,4 +1,5 @@
 import { GLTFViewer } from "./mii_model.js";
+import { GLTFViewerEye } from "./eye_model.js";
 import { WebCamFilters } from "./WebcamFilters.js";
 const elems = document.body.getElementsByTagName("figcaption");
 for (let i = 0; i < elems.length; i++) {
@@ -116,13 +117,47 @@ Reveal.on("webcam", () => {
 		webcamNormal.start();
 		yaPasoCamera = true;
 	}
-	sleep(3000).then(() => {
-		webcam.set_filter(1);
-		sleep(3000).then(() => {
-			webcam.set_filter(2);
-			sleep(3000).then(() => {
-				webcam.set_filter(0);
-			});
-		});
+});
+
+const abaqus_model_container = document.getElementById("model_abaqus");
+const abaqus_model = new GLTFViewerEye(abaqus_model_container, 600, 600);
+var p2 = abaqus_model.loadModel(
+	"./resources/3DModels/model_abaqus/",
+	"model_abaqus.glb"
+);
+
+Reveal.on("abaqus", () => {
+	p2.then(() => {
+		abaqus_model.onWindowResize();
+		abaqus_model.setCamPos(
+			-23.838344563765627,
+			33.41596257121292,
+			10.277514500806546,
+			-1.096834527439133,
+			-4.167616160273829,
+			9.324362828283997
+		);
+		abaqus_model.resetAnimations();
 	});
+});
+const activador = document.getElementById("activador_eye_1");
+const activador2 = document.getElementById("activador_eye_2");
+const activador3 = document.getElementById("activador_eye_3");
+Reveal.on("fragmentshown", (event) => {
+	if (event["fragment"] === activador) {
+		webcam.set_filter(1);
+	} else if (event["fragment"] === activador2) {
+		webcam.set_filter(2);
+	} else if (event["fragment"] === activador3) {
+		abaqus_model.playAnimations([0, 1, 2, 3, 4, 5]);
+	}
+});
+Reveal.on("fragmenthidden", (event) => {
+	if (event["fragment"] === activador) {
+		webcam.set_filter(0);
+	} else if (event["fragment"] === activador2) {
+		webcam.set_filter(1);
+	} else if (event["fragment"] === activador3) {
+		abaqus_model.resetAnimations();
+	}
 });
