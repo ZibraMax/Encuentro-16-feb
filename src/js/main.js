@@ -70,7 +70,7 @@ function sleep(time) {
 	return new Promise((resolve) => setTimeout(resolve, time));
 }
 const mii_model_container = document.getElementById("mii_model");
-const mii_model = new GLTFViewer(mii_model_container, 500, 600);
+const mii_model = new GLTFViewer(mii_model_container, 600, 600);
 var p = mii_model.loadModel("./resources/3DModels/mii_gltf/", "mii.glb");
 
 let cp = {
